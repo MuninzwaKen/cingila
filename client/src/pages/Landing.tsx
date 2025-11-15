@@ -69,7 +69,7 @@ export default function Landing() {
             <h1 className="text-5xl md:text-6xl font-bold mb-6" data-testid="text-hero-title">
               AI-Powered Property
               <br />
-              <span className="text-primary">Management for Kenya</span>
+              <span className="text-primary">and Utility Management Platform</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
               Transform your property management with intelligent automation. Track rent, manage tenants, monitor water usage, and handle maintenance - all in one platform.
