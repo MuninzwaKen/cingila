@@ -45,12 +45,12 @@ export async function setupVite(app: Express, server: Server) {
     const url = req.originalUrl;
 
     try {
-      const clientTemplate = path.resolve(
-        import.meta.dirname,
-        "..",
-        "client",
-        "index.html",
-      );
+      // In dev: server/vite-dev.ts -> resolve to client/index.html
+      // In compiled: dist/server/vite-dev.js -> resolve to ../../client/index.html
+      const isDev = process.env.NODE_ENV === "development";
+      const clientTemplate = isDev
+        ? path.resolve(import.meta.dirname, "..", "client", "index.html")
+        : path.resolve(import.meta.dirname, "..", "..", "client", "index.html");
 
       let template = await fs.promises.readFile(clientTemplate, "utf-8");
       const page = await vite.transformIndexHtml(url, template);
@@ -63,7 +63,10 @@ export async function setupVite(app: Express, server: Server) {
 }
 
 export function serveStatic(app: Express) {
-  const distPath = path.resolve(import.meta.dirname, "public");
+  // In production, compiled server is at dist/server/index.js
+  // Vite builds client to dist/public
+  // So we need to go up one level: dist/server -> dist -> dist/public
+  const distPath = path.resolve(import.meta.dirname, "..", "public");
 
   if (!fs.existsSync(distPath)) {
     throw new Error(
