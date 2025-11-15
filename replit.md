@@ -51,8 +51,9 @@ Preferred communication style: Simple, everyday language.
 
 **Development Environment**
 - Vite middleware integration for HMR (Hot Module Replacement) in development
-- Separate build processes for client (Vite) and server (esbuild)
+- Separate build processes for client (Vite) and server (TypeScript compiler)
 - Custom Vite plugins for Replit-specific features (cartographer, dev banner, runtime error modal)
+- Development server runs TypeScript directly using `tsx` for instant feedback
 
 ### Data Storage & Validation
 
@@ -69,19 +70,35 @@ Preferred communication style: Simple, everyday language.
 **Database Configuration**
 - Drizzle ORM configured for PostgreSQL (via `drizzle.config.ts`)
 - Schema-first approach with migrations directory
-- Note: Currently using in-memory storage for user data (MemStorage class), but infrastructure is prepared for PostgreSQL integration
+- Note: This is a marketing/waitlist site - no database storage needed. Signups are processed via email notifications only.
 
 ### Build & Deployment
 
-**Build Pipeline**
+**Build Pipeline (Updated November 2025)**
 - Client build: Vite bundles React application to `dist/public`
-- Server build: esbuild bundles Express server to `dist/server.js`
-- External dependencies marked for Express and Resend to avoid bundling
+- Server build: TypeScript compiler (tsc) compiles backend to `dist/server/`
+- No bundling for backend - all dependencies remain external and are resolved at runtime
+- Build command: `npm run build` runs `vite build && tsc -p tsconfig.server.json`
+- Start command: `npm start` runs `node dist/server/index.js`
+
+**TypeScript Configuration**
+- `tsconfig.server.json` configures backend compilation with:
+  - Target: ES2020 with ESNext modules for modern Node.js
+  - Module resolution: "bundler" for compatibility with ESM imports
+  - Path aliases: `@shared/*` mapped to `./shared/*`
+  - Output directory: `dist/` (maintains `dist/server/` and `dist/shared/` structure)
+  - Skip lib check enabled to ignore node_modules type errors
+
+**ES Module Requirements**
+- All server-side imports use `.js` extensions for ESM compatibility
+- Dynamic imports in `server/index.ts` lazy-load Vite only in development mode
+- Production server serves static files from `dist/public/`
 
 **Environment Configuration**
-- Development mode uses `tsx` for TypeScript execution with watch mode
-- Production mode runs compiled JavaScript with Node.js
+- Development mode uses `tsx` for TypeScript execution with watch mode and Vite HMR
+- Production mode runs compiled JavaScript from `dist/server/index.js`
 - Environment-aware Vite configuration for production vs development
+- Replit-friendly deployment using standard Node.js without bundlers
 
 ## External Dependencies
 
