@@ -485,7 +485,7 @@ export default function Landing() {
                 <p className="text-muted-foreground mb-6">Perfect for getting started</p>
                 <div className="mb-6">
                   <div className="flex items-baseline gap-1">
-                    <span className="text-4xl font-bold" data-testid="text-price-basic">$10</span>
+                    <span className="text-4xl font-bold" data-testid="text-price-basic">$15</span>
                     <span className="text-muted-foreground">/month</span>
                   </div>
                   <p className="text-sm text-muted-foreground">per property</p>
@@ -528,7 +528,7 @@ export default function Landing() {
                 <p className="text-muted-foreground mb-6">For growing portfolios</p>
                 <div className="mb-6">
                   <div className="flex items-baseline gap-1">
-                    <span className="text-4xl font-bold text-primary" data-testid="text-price-advanced">$15</span>
+                    <span className="text-4xl font-bold text-primary" data-testid="text-price-advanced">$25</span>
                     <span className="text-muted-foreground">/month</span>
                   </div>
                   <p className="text-sm text-muted-foreground">per property</p>
