@@ -64,7 +64,7 @@ export default function Landing() {
         <div className="container max-w-7xl mx-auto">
           <div className="text-center mb-8">
             <Badge variant="secondary" className="mb-4" data-testid="badge-trust">
-              Trusted by 150+ property managers • 5,000+ properties managed
+              Trusted by 30+ property managers and landlords •  500+ properties managed
             </Badge>
             <h1 className="text-5xl md:text-6xl font-bold mb-6" data-testid="text-hero-title">
               AI-Powered Property
@@ -143,7 +143,7 @@ export default function Landing() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="text-4xl font-bold text-primary mb-2" data-testid="text-stat-properties">
-                5,000+
+                500+
               </div>
               <div className="text-muted-foreground">Properties Managed</div>
             </div>
@@ -155,7 +155,7 @@ export default function Landing() {
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-primary mb-2" data-testid="text-stat-collected">
-                KES 2.5B+
+                KES 12.5M+
               </div>
               <div className="text-muted-foreground">Rent Collected</div>
             </div>
@@ -345,7 +345,7 @@ export default function Landing() {
             <div>
               <Badge variant="secondary" className="mb-4">Water Management</Badge>
               <h3 className="text-3xl font-bold mb-4">
-                Smart Water Meter Tracking
+                Automated Water billing and  Meter Tracking
               </h3>
               <p className="text-lg text-muted-foreground mb-6">
                 Track water consumption, detect leaks early, and automate billing. Save water and reduce costs with intelligent monitoring.
