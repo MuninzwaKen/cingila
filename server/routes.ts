@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
-import { sendSignupNotification } from "./email";
-import { insertSignupRequestSchema } from "../shared/schema";
+import { sendSignupNotification } from "./email.js";
+import { insertSignupRequestSchema } from "../shared/schema.js";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Signup Request Route

@@ -1,5 +1,5 @@
 import express, { type Request, Response, NextFunction } from "express";
-import { registerRoutes } from "./routes";
+import { registerRoutes } from "./routes.js";
 
 const app = express();
 
@@ -58,10 +58,10 @@ app.use((req, res, next) => {
   });
 
   if (app.get("env") === "development") {
-    const { setupVite } = await import("./vite-dev");
+    const { setupVite } = await import("./vite-dev.js");
     await setupVite(app, server);
   } else {
-    const { serveStatic } = await import("./vite-dev");
+    const { serveStatic } = await import("./vite-dev.js");
     serveStatic(app);
   }
 
