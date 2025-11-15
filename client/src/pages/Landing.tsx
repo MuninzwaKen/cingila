@@ -64,7 +64,7 @@ export default function Landing() {
         <div className="container max-w-7xl mx-auto">
           <div className="text-center mb-8">
             <Badge variant="secondary" className="mb-4" data-testid="badge-trust">
-              Trusted by 30+ property managers and landlords •  500+ properties managed
+              Trusted by 10+ property managers and landlords •  50+ properties managed
             </Badge>
             <h1 className="text-5xl md:text-6xl font-bold mb-6" data-testid="text-hero-title">
               AI-Powered Property
@@ -143,13 +143,13 @@ export default function Landing() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="text-4xl font-bold text-primary mb-2" data-testid="text-stat-properties">
-                500+
+                50+
               </div>
               <div className="text-muted-foreground">Properties Managed</div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-primary mb-2" data-testid="text-stat-managers">
-                150+
+                10+
               </div>
               <div className="text-muted-foreground">Property Managers</div>
             </div>
@@ -177,7 +177,7 @@ export default function Landing() {
               The Challenge
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              60% of Kenyan property managers still use spreadsheets and paper records
+              60% of Kenyan property managers and landlords still use spreadsheets and paper records
             </p>
           </div>
 
