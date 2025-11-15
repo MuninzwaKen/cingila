@@ -11,10 +11,14 @@ esbuild server/index.ts \
   --format=esm \
   --outfile=dist/server.js \
   --packages=external \
+  --external:@*/* \
+  --external:lightningcss \
+  --external:postcss \
+  --external:autoprefixer \
   --external:vite \
-  --external:@vitejs/plugin-react \
-  --external:@replit/vite-plugin-cartographer \
-  --external:@replit/vite-plugin-dev-banner \
-  --external:@replit/vite-plugin-runtime-error-modal
+  --external:esbuild \
+  --external:@vitejs/* \
+  --external:@replit/* 
 
 echo "✅ Build completed successfully!"
+

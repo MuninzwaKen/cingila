@@ -1,0 +1,115 @@
+I need you to refactor my project to use a stable Replit-friendly deployment setup.
+Follow these exact instructions:
+
+1. Update package.json
+
+Modify my package.json to the following structure:
+
+Remove all esbuild usage from the "build" script.
+
+Replace the build script with:
+
+"build": "vite build && tsc -p tsconfig.server.json"
+
+
+Ensure "start" is:
+
+"start": "NODE_ENV=production node dist/server/index.js"
+
+
+Keep "dev" as:
+
+"dev": "NODE_ENV=development tsx server/index.ts"
+
+
+Do NOT remove any existing dependencies unless unnecessary.
+Do NOT leave any esbuild bundling commands in package.json.
+
+2. Create a new file: tsconfig.server.json
+
+In the root of the project, create the file tsconfig.server.json with exactly this content:
+
+{
+  "compilerOptions": {
+    "outDir": "dist/server",
+    "module": "ESNext",
+    "target": "ES2020",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "strict": true,
+    "resolveJsonModule": true
+  },
+  "include": ["server/**/*.ts"],
+  "exclude": ["node_modules"]
+}
+
+
+This must be placed in the project root.
+
+3. Make the backend compatible with tsc
+
+Review the backend TypeScript files inside the server/ directory and ensure:
+
+All imports use standard ES modules (e.g., import express from "express").
+
+No require() calls unless wrapped with createRequire.
+
+No bundler-specific code remains.
+
+Output is compiled by tsc into dist/server.
+
+4. Remove unused deploy scripts
+
+Delete or ignore any Bash deploy scripts or build.js files that rely on esbuild.
+They should not be used by Replit Deploy.
+
+5. Do NOT use esbuild during deploy
+
+Confirm that no build step or script anywhere calls esbuild.
+Only Vite + TypeScript compiler should run.
+
+6. Ensure final structure
+
+After changes, the final folder output must be:
+
+dist/
+  client/  (Vite assets)
+  server/  (compiled backend JS)
+
+
+Where:
+
+Vite writes frontend to dist/
+
+tsc writes backend to dist/server/
+
+7. Deployment configuration
+
+Ensure the app can deploy on Replit using:
+
+Build command:
+
+npm run build
+
+
+Run command:
+
+npm start
+
+8. Test
+
+After all changes:
+
+Run npm run build
+
+Run npm start
+
+Verify server starts and serves Vite output (if configured)
+
+Fix any import/path issues
+
+Important:
+
+The goal is remove esbuild completely, use tsc for backend, and ensure Replit Deploy uses a raw Node.js server with no bundling.
+
+Perform all changes now. Explain each modification you make and confirm when the project is ready for deployment.
