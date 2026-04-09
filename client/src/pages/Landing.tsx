@@ -77,11 +77,11 @@ export default function Landing() {
             <div className="flex gap-4 justify-center mb-12">
               <Button size="lg" asChild data-testid="button-hero-cta">
                 <a href="/signup">
-                  Join Waitlist <ArrowRight className="ml-2 h-4 w-4" />
+                  Get Started <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
               </Button>
               <Button size="lg" variant="outline" asChild data-testid="button-hero-demo">
-                <a href="/signup">Request Demo</a>
+                <a href="/demo">Request Demo</a>
               </Button>
             </div>
             <div className="flex gap-8 justify-center text-sm text-muted-foreground">
@@ -705,11 +705,11 @@ export default function Landing() {
           <div className="flex gap-4 justify-center mb-8">
             <Button size="lg" asChild data-testid="button-final-cta">
               <a href="/signup">
-                Join Waitlist <ArrowRight className="ml-2 h-4 w-4" />
+                Get Started <ArrowRight className="ml-2 h-4 w-4" />
               </a>
             </Button>
             <Button size="lg" variant="outline" asChild data-testid="button-final-demo">
-              <a href="/signup">Request Demo</a>
+              <a href="/demo">Request Demo</a>
             </Button>
           </div>
           <div className="flex gap-8 justify-center text-sm text-muted-foreground">
@@ -753,7 +753,7 @@ export default function Landing() {
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li><a href="#features" className="hover:text-primary transition-colors" data-testid="link-footer-features">Features</a></li>
                 <li><a href="#pricing" className="hover:text-primary transition-colors" data-testid="link-footer-pricing">Pricing</a></li>
-                <li><a href="/signup" className="hover:text-primary transition-colors" data-testid="link-footer-demo">Demo</a></li>
+                <li><a href="/demo" className="hover:text-primary transition-colors" data-testid="link-footer-demo">Demo</a></li>
                 <li><a href="/changelog" className="hover:text-primary transition-colors" data-testid="link-footer-changelog">Changelog</a></li>
               </ul>
             </div>

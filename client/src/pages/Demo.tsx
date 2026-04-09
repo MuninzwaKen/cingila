@@ -12,7 +12,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Building2, CheckCircle } from "lucide-react";
 import { apiRequest } from "@/lib/queryClient";
 
-export default function SignUp() {
+export default function Demo() {
   const { toast } = useToast();
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -29,14 +29,14 @@ export default function SignUp() {
 
   const mutation = useMutation({
     mutationFn: async (data: InsertSignupRequest) => {
-      const res = await apiRequest("POST", "/api/signup-request", data);
+      const res = await apiRequest("POST", "/api/demo-request", data);
       return await res.json();
     },
     onSuccess: () => {
       setIsSubmitted(true);
       toast({
-        title: "You're on the list!",
-        description: "Check your email — we've sent you a confirmation.",
+        title: "Demo requested!",
+        description: "Our team will be in touch shortly to schedule your demo.",
       });
     },
     onError: (error: Error) => {
@@ -60,9 +60,9 @@ export default function SignUp() {
             <div className="mx-auto mb-4 h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center">
               <CheckCircle className="h-8 w-8 text-primary" />
             </div>
-            <CardTitle className="text-2xl">You're In!</CardTitle>
+            <CardTitle className="text-2xl">Demo Requested!</CardTitle>
             <CardDescription>
-              We've sent a confirmation to your email address. Access to Cingila will be granted soon — we'll notify you the moment it's ready.
+              Thank you for your interest. Our team will be in touch shortly to schedule a personalized demo for you.
             </CardDescription>
           </CardHeader>
           <CardContent className="text-center">
@@ -94,9 +94,9 @@ export default function SignUp() {
       <div className="container max-w-md mx-auto px-6 py-20">
         <Card>
           <CardHeader>
-            <CardTitle className="text-2xl">Get Started</CardTitle>
+            <CardTitle className="text-2xl">Request a Demo</CardTitle>
             <CardDescription>
-              Sign up to be among the first to access Cingila. We'll notify you as soon as your account is ready.
+              See Cingila in action. Fill in your details and our team will reach out to schedule a personalized walkthrough.
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -213,7 +213,7 @@ export default function SignUp() {
                   disabled={mutation.isPending}
                   data-testid="button-submit"
                 >
-                  {mutation.isPending ? "Submitting..." : "Get Started"}
+                  {mutation.isPending ? "Submitting..." : "Request Demo"}
                 </Button>
               </form>
             </Form>
